@@ -2,8 +2,8 @@
 #include "PlayerViewMode.h"
 #include "BufferVisualizationData.h"
 #include "CommandDispatcher.h"
-#include "Async.h"
-#include "SceneViewport.h"
+#include "Async/Async.h"
+#include "Slate/SceneViewport.h"
 #include "ViewMode.h"
 #include "GTCaptureComponent.h"
 #include "ObjectPainter.h"
@@ -134,7 +134,7 @@ void FPlayerViewMode::Object()
 	UWorld* World = FUE4CVServer::Get().GetGameWorld();
 	auto Viewport = World->GetGameViewport();
 	FViewMode::VertexColor(Viewport->EngineShowFlags);
-	// ApplyPostProcess("object_mask");
+	ApplyPostProcess("object_mask");
 }
 
 FExecStatus FPlayerViewMode::SetMode(const TArray<FString>& Args) // Check input arguments
